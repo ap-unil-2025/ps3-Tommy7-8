@@ -15,7 +15,9 @@ def celsius_to_fahrenheit(celsius):
         float: Temperature in Fahrenheit
     """
     # TODO: Implement this function
-    pass
+
+    fahreneit = (celsius * 9/5) + 32
+    return round(fahreneit, 2)
 
 
 def fahrenheit_to_celsius(fahrenheit):
@@ -30,7 +32,8 @@ def fahrenheit_to_celsius(fahrenheit):
         float: Temperature in Celsius
     """
     # TODO: Implement this function
-    pass
+    celsius = (fahrenheit - 32) * 5/9 
+    return round(celsius, 2)
 
 
 def temperature_converter():
@@ -43,6 +46,13 @@ def temperature_converter():
     """
     print("Temperature Converter")
     print("-" * 30)
+
+    number = float(input("Enter the value of the temperature: "))
+    unit = input("Select the unit (C or F): ")
+    if unit == 'C':
+        print("The temperature in Fahreneit is:",celsius_to_fahrenheit(number))
+    else:
+        print("The temperature in Celsius is:",fahrenheit_to_celsius(number))
 
     # TODO: Implement the interactive converter
     # Remember to:
@@ -71,4 +81,4 @@ if __name__ == "__main__":
     print()
 
     # Run interactive converter
-    temperature_converter()
+    temperature_converter() 

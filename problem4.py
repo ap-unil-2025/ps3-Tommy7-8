@@ -32,8 +32,12 @@ def count_words(filename):
     """
     # TODO: Open file and count words
     # Hint: Use split() to separate words
-    pass
-
+    with open(filename, "r") as file:
+        text = file.read()
+        words = text.split()
+        word_count = len(words)
+        
+    return word_count
 
 def count_lines(filename):
     """
@@ -46,7 +50,12 @@ def count_lines(filename):
         int: Total number of lines
     """
     # TODO: Open file and count lines
-    pass
+    with open(filename, "r") as file:
+        text = file.read()
+        lines = text.splitlines() #exits also function readlines()
+        num_lines = len(lines)
+    
+    return num_lines
 
 
 def count_characters(filename, include_spaces=True):
@@ -62,7 +71,14 @@ def count_characters(filename, include_spaces=True):
     """
     # TODO: Open file and count characters
     # If include_spaces is False, don't count spaces
-    pass
+    with open(filename, "r") as file:
+        text = file.read()
+        if include_spaces:
+            chars = len(text)
+        else:
+            chars = len(text.replace(" ", "")) #removes spaces before counting
+
+    return chars
 
 
 def find_longest_word(filename):
@@ -77,7 +93,16 @@ def find_longest_word(filename):
     """
     # TODO: Find the longest word
     # Hint: You might need to remove punctuation
-    pass
+    import string
+
+    with open(filename, "r") as file:
+        text = file.read()
+        words = text.split()
+
+        clean_words = [w.strip(string.punctuation) for w in words]
+        longest_word = max(clean_words, key=len)
+
+    return longest_word
 
 
 def word_frequency(filename):
@@ -100,6 +125,18 @@ def word_frequency(filename):
     # TODO: Convert to lowercase
     # TODO: Remove punctuation (use string.punctuation)
     # TODO: Count frequency of each word
+    with open(filename, "r") as file:
+        text = file.read()
+
+        lower_text = text.lower()
+
+        translator = str.maketrans("", "", string.punctuation) 
+        clean_text = lower_text.translate(translator)
+
+        words = clean_text.split()
+
+        for word in words:
+            frequency[word] = frequency.get(word, 0) + 1
 
     return frequency
 
