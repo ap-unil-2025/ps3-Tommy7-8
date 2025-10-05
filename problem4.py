@@ -32,6 +32,8 @@ def count_words(filename):
     """
     # TODO: Open file and count words
     # Hint: Use split() to separate words
+    pass
+
     with open(filename, "r") as file:
         text = file.read()
         words = text.split()
@@ -50,6 +52,8 @@ def count_lines(filename):
         int: Total number of lines
     """
     # TODO: Open file and count lines
+    pass
+
     with open(filename, "r") as file:
         text = file.read()
         lines = text.splitlines() #exits also function readlines()
@@ -71,6 +75,8 @@ def count_characters(filename, include_spaces=True):
     """
     # TODO: Open file and count characters
     # If include_spaces is False, don't count spaces
+    pass
+
     with open(filename, "r") as file:
         text = file.read()
         if include_spaces:
@@ -93,6 +99,8 @@ def find_longest_word(filename):
     """
     # TODO: Find the longest word
     # Hint: You might need to remove punctuation
+    pass
+
     import string
 
     with open(filename, "r") as file:
